@@ -27,7 +27,19 @@ Ideas on how to create Ny's style-based-test-set and evaluation metrics
 
 ####
 
-`In the embedding space after applying Fashion-CLIP (FCLIP) on the products, the choice between curating a dataset with the top 20 recommendations that are close-by to the anchor's embedding vector or spread-out depends on the specific goals of your evaluation.`
+`In the embedding space after applying Fashion-CLIP (FCLIP) on the products, the choice between curating a dataset with the top 20 recommendations that are close-by to the anchor's embedding vector or spread-out depends on the specific goals of your evaluation.
+
+
+- Close-by Recommendations:
+
+Goal: Evaluate the model's precision in recommending stylistically similar products.
+Reasoning: By selecting recommendations that are close to the anchor in the embedding space, you focus on assessing the model's ability to identify products with a high degree of stylistic similarity. This approach is useful if your primary objective is to test the model's precision in capturing fine-grained style nuances.
+
+
+- Spread-out Recommendations:
+
+Goal: Evaluate the model's diversity in recommending a variety of stylistically relevant products.
+Reasoning: By selecting recommendations that are spread out in the embedding space, you can assess the model's ability to capture a diverse range of stylistically relevant products. This approach is useful for understanding the model's capacity to explore different facets of style while still maintaining relevance to the anchor.`
 
 
 
