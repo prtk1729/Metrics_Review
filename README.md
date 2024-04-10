@@ -39,7 +39,14 @@ Reasoning: By selecting recommendations that are close to the anchor in the embe
 - Spread-out Recommendations:
 
 Goal: Evaluate the model's diversity in recommending a variety of stylistically relevant products.
-Reasoning: By selecting recommendations that are spread out in the embedding space, you can assess the model's ability to capture a diverse range of stylistically relevant products. This approach is useful for understanding the model's capacity to explore different facets of style while still maintaining relevance to the anchor.`
+Reasoning: By selecting recommendations that are spread out in the embedding space, you can assess the model's ability to capture a diverse range of stylistically relevant products. This approach is useful for understanding the model's capacity to explore different facets of style while still maintaining relevance to the anchor.
+
+
+- Hybrid Approach:
+
+Goal: Balance precision and diversity in recommendations.
+Reasoning: A hybrid approach, where you select some recommendations that are close-by and some that are spread-out, allows you to evaluate both the precision and diversity of the model's recommendations. This approach provides a more comprehensive understanding of the model's performance.
+`
 
 
 
