@@ -26,6 +26,63 @@ Ideas on how to create Ny's style-based-test-set and evaluation metrics
 
 
 ####
+import ipywidgets as widgets
+from IPython.display import display, clear_output
+import pandas as pd
+
+image_urls = [
+    "path/to/image1.jpg",
+    "path/to/image2.jpg",
+    "path/to/image3.jpg",
+    # Add all 20 image paths
+]
+
+
+# Create a DataFrame to store image URLs upon button clicks
+saved_urls = pd.DataFrame(columns=['Image URL'])
+
+def save_url_and_hide(button):
+    # Retrieve the image URL from the button's 'image_url' attribute
+    image_url = button.image_url
+    
+    # Append the URL to the DataFrame
+    global saved_urls
+    saved_urls = saved_urls.append({'Image URL': image_url}, ignore_index=True)
+    
+    # Hide the image and button
+    button.layout.visibility = 'hidden'
+    button.image_widget.layout.visibility = 'hidden'
+    
+    # Save the DataFrame to a CSV file
+    saved_urls.to_csv('/dbfs/FileStore/my_folder/saved_image_urls.csv', index=False)
+
+# Create a list to hold all widgets for display
+widgets_list = []
+
+for url in image_urls:
+    # Create the image widget
+    image_widget = widgets.Image(value=open(url, "rb").read(), format='jpg', width=150, height=150)
+    
+    # Create the button widget
+    button = widgets.Button(description="Save URL")
+    
+    # Set custom attributes for ease of access
+    button.image_url = url
+    button.image_widget = image_widget
+    
+    # Set the on_click event
+    button.on_click(save_url_and_hide)
+    
+    # Append to the list
+    widgets_list.append(widgets.VBox([image_widget, button]))
+
+# Display all widgets
+display(widgets.VBox(widgets_list))
+
+
+
+
+
 
 `In the embedding space after applying Fashion-CLIP (FCLIP) on the products, the choice between curating a dataset with the top 20 recommendations that are close-by to the anchor's embedding vector or spread-out depends on the specific goals of your evaluation.
 
